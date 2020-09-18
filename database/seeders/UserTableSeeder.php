@@ -10,6 +10,6 @@ use Illuminate\Database\Seeder;
 class UserTableSeeder extends Seeder
 {
     public function run() {
-        User::create(['name' => 'Cristian Quispe Ramirez', 'email' => 'cristianqr@outlook.com', 'password' => bcrypt('123')]);
+        User::create(['name' => 'Cristian Quispe Ramirez', 'email' => 'cristian.quispe@globant.com', 'password' => bcrypt('nfmc123')]);
     }
 }
