@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Laravel\Passport\Passport;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Passport::routes();
+
+        Passport::tokensCan(['nfmc' => 'Nuevo Frontend Multicanal']);
+        Passport::setDefaultScope(['nfmc']);
+        Passport::tokensExpireIn(now()->addHour(1));
+        Passport::refreshTokensExpireIn(now()->addDay(1));
     }
 }
